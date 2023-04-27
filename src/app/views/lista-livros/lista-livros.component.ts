@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LivroService } from 'src/app/service/livro.service';
 
 @Component({
@@ -6,21 +7,22 @@ import { LivroService } from 'src/app/service/livro.service';
   templateUrl: './lista-livros.component.html',
   styleUrls: ['./lista-livros.component.css']
 })
-export class ListaLivrosComponent implements OnInit {
+export class ListaLivrosComponent implements OnDestroy {
 
   listaLivros: [];
   campoBusca!: string;
+  subscription: Subscription;
 
   constructor(private livroService: LivroService) { }
 
-  ngOnInit(): void {
-
-  }
-
   buscarLivros()  {
-    this.livroService.buscar(this.campoBusca).subscribe({
+    this.subscription = this.livroService.buscar(this.campoBusca).subscribe({
       next: retornoAPI => console.log(retornoAPI),
       error: erro => console.log(erro)
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
