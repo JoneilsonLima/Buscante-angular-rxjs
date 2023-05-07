@@ -10,3 +10,6 @@
 
 <h3>Retorno de uma busca:</h3>
 <img src="https://user-images.githubusercontent.com/73480168/236574668-5a769e1e-8174-4f41-9f94-e7bf967400d2.png" />
+
+<h3>Modal com a descrição de um livro:</h3>
+<img src="https://user-images.githubusercontent.com/73480168/236684396-ca6c4b65-f7c8-4519-8c10-7aeafb37ffd9.png" />
